@@ -1,0 +1,59 @@
+{% extends "base.html" %} 
+{% block content %}
+<style>
+    body {
+        font-family: "Roboto", sans-serif;
+        font-size: 18px;
+        background-color: #fdfdfd;
+    }
+    
+    .head_text {
+        color: white;
+    }
+    .card {
+        box-shadow: 0 16px 48px #E3E7EB;
+    }
+    .custom-padding-top-2 {
+        padding-top: 2%;
+    }
+</style>
+
+<header class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class=" col-md-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h3 class=" site-heading my-4 mt-3 text-white">Просто тестовое задание</h3>
+                    <h5 class="text-light">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, cum</p>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                        Enim vel fuga corporis rem quo doloribus incidunt similique, 
+                        unde non recusandae necessitatibus soluta voluptatibus id modi 
+                        ipsam consectetur numquam beatae dolore rerum, eum praesentium! 
+                        Autem voluptatibus atque fuga non eaque repellat, neque aliquid dolor, 
+                        at odit dicta beatae aspernatur labore tempore.
+                    </h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+    <div class="row">
+        <!-- Blog Entries Column -->
+        <div class="col-md-8 mt-3 left custom-padding-top-2">
+            {% for post in post_list %}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="card-title">{{ post.title }}</h2>
+                    <p class="card-text text-muted h6">{{ post.author }} | {{ post.created_on}} </p>
+                    <p class="card-text">{{post.content|slice:":200" }}</p>
+                    <a href="{% url 'post_detail' post.slug  %}" class="btn btn-dark">Читать ...</a>
+                </div>
+            </div>
+            {% endfor %}
+            {% block footer %} {% include 'footer.html' %} {% endblock footer %}
+        </div>
+    </div>
+</div>
+{%endblock%}

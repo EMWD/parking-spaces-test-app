@@ -1,0 +1,11 @@
+venv/
+vscode/
+.vscode
+idea/
+.idea
+mysite/static/
+mysite/mysite/.env
+mysite/mysite/settings.py
+__pycache__/
+*.py[cod]
+*$py.class

@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-16 card mb-10 p-3 mt-5">
+      <div class="card-body">
+        <h1>{% block title %} {{ object.title }} {% endblock title %}</h1>
+        <p class=" text-muted">{{ task.author }} | {{ task.created_on }}</p>
+        <p class="card-text ">{{ object.content | safe }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% block footer %} {% include 'footer.html' %} {% endblock footer %}
+
+{% endblock content %}
